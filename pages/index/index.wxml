@@ -1,0 +1,63 @@
+<view class="container">
+<!-- 轮播图 -->
+  <swiper class="swiperBanner" indicator-dots indicator-color="ivory" indicator-active-color='#d43c33'>
+    <swiper-item  class="swiperItem" wx:for="{{bannerList}}" wx:key="bannerId">
+      <image class="swiperImg" src="{{item.pic}}"></image>
+    </swiper-item> 
+  </swiper>
+    <!-- 导航区域 -->
+    <view class="nav">
+    <view class="navItem">
+    <text  class="iconfont icon-meirituijian-"></text>
+    <text>今日推荐</text>
+    </view>
+       <view class="navItem">
+    <text  class="iconfont icon-gedan1"></text>
+    <text>今日推荐</text>
+    </view>
+       <view class="navItem">
+    <text  class="iconfont icon-icon-ranking"></text>
+    <text>今日推荐</text>
+    </view>
+       <view class="navItem">
+    <text  class="iconfont icon-diantai"></text>
+    <text>今日推荐</text>
+    </view>
+       <view class="navItem">
+    <text  class="iconfont icon-zhiboguankanliangbofangsheyingshexiangjixianxing"></text>
+    <text>今日推荐</text>
+    </view>
+    </view>
+
+    <!-- 推荐歌曲区域 -->
+    <view class="recommendContainer">
+    <Header />
+    <!-- 图片 -->
+    <scroll-view class="recommendScorll" enable-flex  scroll-x>
+    <view class="recommendItem" wx:for="{{recommendList}}" :key="id">
+     <image src="{{item.picUrl}}"></image>
+     <text>{{item.name}}</text>
+     </view>
+    </scroll-view>
+    </view>
+
+
+    <!-- 排行榜 -->
+    <view class="topContainer">
+    <Header />
+    <swiper class="topSwiper" next-margin = "50rpx">
+    <swiper-item wx:for="{{topList}}" :key="name" >
+    <view class="topItem">
+    <view class="topTitle">{{item.name}}</view>
+    <view class="topContent" wx:for="{{item.musicList}}" wx:for-item="musicItem" wx:for-index="musicIndex"  :key="id">
+    <image src="{{musicItem.al.picUrl}}" class="topImg"></image>
+    <text class="topNum">{{musicIndex+1}}</text>
+    <text class="topName">{{musicItem.al.name}}</text>
+    </view>
+    </view>
+    </swiper-item>
+    </swiper>
+    </view>
+
+
+</view>

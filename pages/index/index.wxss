@@ -1,0 +1,91 @@
+ .container .swiperBanner .swiperItem .swiperImg{
+  width:100%;
+  height:100%;
+}
+.nav{
+  display: flex
+}
+.navItem{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  flex-grow: 1;
+}
+.navItem .iconfont{
+    font-size: 48rpx;
+    width: 100rpx;
+    height: 100rpx;
+    background:  rgb(240, 19, 19);
+    border-radius: 50%;
+    line-height: 100rpx;
+    text-align: center;
+    color: white;
+    margin: 20rpx 0;
+}
+.navItem text{
+  font-size: 28rpx
+}
+ .recommendContainer{
+   margin: 0 20rpx
+ }
+
+.recommendScorll{
+  display: flex;
+  padding-top: 20rpx;
+  height: 340rpx;
+}
+.recommendItem{
+  width: 200rpx;
+  margin-right: 20rpx
+}
+
+.recommendItem image{
+  width: 200rpx;
+  height: 200rpx
+}
+.recommendItem text{
+  width: 100%;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.topContainer{
+  width: 100%;
+  margin: 0 20rpx
+
+}
+.topSwiper{
+  height: 624rpx;
+}
+.topItem{
+  background: #fbfbfb;
+  border-radius: 10rpx;
+}
+.topItem .topTitle{
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+}
+.topContent{
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  margin: 20px 0;
+}
+.topImg{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 10rpx;
+}
+.topNum{
+  height: 100rpx;
+  width: 100rpx;
+  line-height: 100rpx;
+  text-align: center
+}
+.topName{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
