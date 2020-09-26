@@ -1,0 +1,129 @@
+.container{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0,0,0,.5);
+}
+.container .keng{
+  height: 60rpx;
+  width: 60rpx;
+  background: white;
+  border-radius: 50%;
+  z-index: 99;
+  }
+.container .needle{
+  position: relative;
+  height: 274rpx;
+  width: 192rpx;
+  top:-36rpx;
+  left:58rpx;
+  transform:rotateZ(-20deg);
+  z-index: 98;
+    transform-origin: 40rpx 0;
+  transition:transform 1s;
+}
+.discContainer{
+  position: relative;
+  top:-180rpx;
+  height: 598rpx;
+  width: 598rpx;
+  animation: rotateDisc 4s linear infinite 1s;
+  animation-play-state: paused;
+}
+.container.playing .needle{
+  transform:rotateZ(0deg);
+}
+.container.playing .discContainer{
+  animation-play-state: running;
+}
+
+@keyframes rotateDisc{
+  /* 
+    from,to 
+    百分比0%,50%,100%
+   */
+   from{
+    transform:rotateZ(0deg);
+   }
+   to{
+    transform:rotateZ(360deg);
+   }
+}
+
+.disc{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 97
+}
+
+.disImg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 370rpx;
+  width: 370rpx;
+}
+
+
+
+
+/* musicControl */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1rpx solid #fff;
+}
+
+.musicControl text {
+  width: 20%;
+  text-align: center;
+  font-size: 50rpx;
+  color: #fff;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.musicControl text.big {
+  font-size: 80rpx;
+}
+
+.audioContainer{
+  position: absolute;
+  bottom:200rpx;
+  display:flex;
+  width:640rpx;
+  height:80rpx;
+  line-height:80rpx;
+}
+
+.audioContainer .barContainer{
+  width:450rpx;
+  height:4rpx;
+  background:rgba(0, 0, 0, 0.4);
+  margin:auto;
+}
+
+.audioContainer .barContainer .audio-current-time{
+  position: relative;
+  width:50%;
+  height:4rpx;
+  background:red;
+}
+
+.audioContainer .barContainer .audio-current-time .audio-time-point{
+  position: absolute;
+  top:-4rpx;
+  right:-6rpx;
+  width:12rpx;
+  height:12rpx;
+  border-radius: 50%;
+  background:white;
+}

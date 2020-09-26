@@ -1,5 +1,6 @@
 // pages/index/index.js
 import request from '../../utils/request.js'
+
 Page({
 
   /**
@@ -11,10 +12,16 @@ Page({
     topList:[]
   },
 
+  toRecommendSong(){
+      wx.navigateTo({
+        url: '/pages/recommendSong/recommendSong',
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     // wx.request({
     //   url: "http://localhost:3000/banner",
     //    data:{
@@ -27,32 +34,38 @@ Page({
     //      })
     //    }
     // })
-    request("http://localhost:3000/banner",{type:2},"get").then((res)=>{
+    request("/banner",{type:2},"get").then((res)=>{
           this.setData({
             bannerList: res.banners
           })
     })
 
-    request("http://localhost:3000/personalized").then((res) => {
+    request("/personalized").then((res) => {
       this.setData({
         recommendList: res.result
       })
     }) 
 
-let ids = [5,10,15,20]
-let index = 0
-let topList = []
-    while (index < ids.length){
-      request('http://localhost:3000/top/list', { idx: ids[index++] }).then((res) => {
-        let topDate = {}
-        topDate.name = res.playlist.name
-        topDate.musicList = res.playlist.tracks.slice(0,3)
-        topList.push(topDate)
+      //  请求排行榜的歌曲
+      let arr = [3,5,7,9,22]
+
+      let index = 0
+      let topList = []
+      while(index < arr.length){
+        const result = await request('/top/list',{idx:arr[index++]})
+        let data = {
+          name: result.playlist.name,
+          tracks: result.playlist.tracks.slice(0,3)
+        }
+        topList.push(data)
         this.setData({
           topList
         })
-      })
-    }
+      }
+
+
+
+
   },
 
   /**

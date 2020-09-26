@@ -1,0 +1,23 @@
+<view class="container {{isPlaying ? 'playing':'' }}">
+    <text class="name">{{songObj.ar[0].name}}</text>
+    <view class="keng"></view>
+    <image class='needle' src="/static/images/song/needle.png"></image>
+    <view class="discContainer">
+      <image class="disc" src="/static/images/song/disc.png"></image>
+      <image class="disImg" src="{{songObj.al.picUrl}}"></image>
+    </view> 
+
+
+
+      <!-- 底部播放选项区域 -->
+  <view class="musicControl">
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle" ></text>
+    <text class="iconfont icon-shangyishou" bindtap="switchSong" id="pre"></text>
+    <text class="iconfont {{isPlaying?'icon-zanting':'icon-bofang'}} big" bindtap="handlePlay" id="{{index}}"></text>
+    <text class="iconfont icon-next" bindtap="switchSong" id="next"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+  </view>
+</view>
+
+
+
